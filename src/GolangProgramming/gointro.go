@@ -1,14 +1,21 @@
 package main
 
-import (
-	"fmt"
-	"time"
-	"math/rand"
-)
+import "fmt"
 
+func add(x float64, y float64) float64 {
+	return x+y
+}
+
+func multiple(a,b string) (string,string) {
+	return a,b
+}
 
 func main() {
-	fmt.Println("It is currently:",time.Now())
-	fmt.Println("A number from 1-66", rand.Intn(66))
+	var num1 float64 = 5.6
+	var num2 float64 = 9.5
 
+	fmt.Println(add(num1,num2))
+	
+	w1,w2 := multiple("Hey","there")
+	fmt.Println(w1,w2)
 }
