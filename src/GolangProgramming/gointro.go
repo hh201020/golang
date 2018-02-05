@@ -1,7 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+	"math/rand"
+)
+
 
 func main() {
-	fmt.Println("Welcome to Go!")
+	fmt.Println("It is currently:",time.Now())
+	fmt.Println("A number from 1-66", rand.Intn(66))
+
 }
