@@ -2,20 +2,18 @@ package main
 
 import "fmt"
 
-func add(x float64, y float64) float64 {
-	return x+y
-}
-
-func multiple(a,b string) (string,string) {
-	return a,b
-}
-
 func main() {
-	var num1 float64 = 5.6
-	var num2 float64 = 9.5
-
-	fmt.Println(add(num1,num2))
+	x := 15
+	a := &x         // point to x  (memory address)
+	fmt.Println(a)  // prints out the mem addr.
+	fmt.Println(*a) // read a through the pointer, so this will print out a value (15 in this case)
 	
-	w1,w2 := multiple("Hey","there")
-	fmt.Println(w1,w2)
+	*a = 5          // sets the value pointed at to 5, which means x is modified (since x is stored at the mem addr)
+	fmt.Println(x)  // see the new value of x
+	*a = *a**a      // what is the value of x now? 
+	fmt.Println(x)  // prints a value
+	fmt.Println(*a) // prints a value
+
+	fmt.Println(&x) // prints a memory address
+	fmt.Println(a)      // prints a memory address
 }
