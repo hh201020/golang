@@ -8,15 +8,7 @@ import (
 )
 
 type Sitemapindex struct {
-	Locations []Location `xml:"sitemap"`
-}
-
-type Location struct {
-	Loc string `xml:"loc"`
-}
-
-func (l Location) String() string {
-	return fmt.Sprintf(l.Loc)
+	Locations []string `xml:"sitemap>loc"`
 }
 
 func main() {
@@ -25,9 +17,8 @@ func main() {
 
 	var s Sitemapindex
 	xml.Unmarshal(bytes, &s)
-	//fmt.Println(s.Locations)
 
-	for index, Location := range s.Locations {
-		fmt.Printf("%d %s\n", index, Location)
+	for _, Location := range s.Locations {
+		fmt.Printf("%s\n", Location)
 	}
 }
